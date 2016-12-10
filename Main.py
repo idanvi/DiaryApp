@@ -54,3 +54,24 @@ def deleteEvent(date, title):
 @app.route("/view,<date>,<title>")
 def viewEvent(date, title):
     return View.viewDiaryEvent(date, title, eventsList)
+
+#=======================================================#
+#search for events by description                       #
+#=======================================================#
+@app.route("/searchByDesc,<Desc>")
+def searchByDesc(Desc):
+    return Search.searchEventByDesc(Desc, eventsList)
+
+#=======================================================#
+#search for events by date range                        #
+#=======================================================#
+@app.route("/searchByDates,<Date1>,<Date2>")
+def searchByDates(Date1, Date2):
+    return Search.searchByDateRange(Date1, Date2, eventsList)
+
+#=======================================================#
+#search for events by date range and description        #
+#=======================================================#
+@app.route("/searchByDatesAndDesc,<Date1>,<Date2>,<Desc>")
+def searchByDatesAndDesc(Date1, Date2, Desc):
+    return Search.searchByDateAndDesc(Date1, Date2, Desc, eventsList)
