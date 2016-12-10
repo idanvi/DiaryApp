@@ -25,3 +25,32 @@ def userMenu():
                     7. Search By Dates Range and Description - /<b>searchByDatesAndDesc</b> , mindate , maxdate , description <br><br>
 
                 <b>Note: Date Format is : DD-MM-YYYY </b><br><br>""" + "# Of Events in diary: " + str( eventsList.__len__() )
+
+#=======================================================#
+#Insert new event                                       #
+#=======================================================#
+@app.route("/insert,<date>,<title>,<desc>")
+def insertEvent(date, title, desc):
+    newEvent = Event(date, title, desc)
+    return Insert.insertEventToList(newEvent, eventsList)
+
+#=======================================================#
+#update event                                           #
+#=======================================================#
+@app.route("/update,<oldDate>,<oldTitle>,<newDate>,<newTitle>,<newDesc>")
+def updateEvent(oldDate, oldTitle, newDate, newTitle, newDesc):
+    return Update.updateDiaryEvent(oldDate, oldTitle, newDate, newTitle, newDesc, eventsList)
+
+#=======================================================#
+#delete event                                           #
+#=======================================================#
+@app.route("/delete,<date>,<title>")
+def deleteEvent(date, title):
+    return Delete.deleteDiaryEvent(date, title, eventsList)
+
+#=======================================================#
+#view event                                             #
+#=======================================================#
+@app.route("/view,<date>,<title>")
+def viewEvent(date, title):
+    return View.viewDiaryEvent(date, title, eventsList)
