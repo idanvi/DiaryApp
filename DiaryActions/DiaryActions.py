@@ -62,7 +62,7 @@ class DiaryActions:
     # this method searches for events by their description       
     #********************************************************
     @staticmethod
-    def searchEventByDesc(txt, eventsList):                 #*****work with search by free text!!!
+    def searchEventByDesc(txt, eventsList):            
         if (eventsList.__len__() == 0):
             return "Diary is Empty, No Events to Search For!"
         else:
