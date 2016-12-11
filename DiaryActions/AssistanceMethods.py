@@ -2,9 +2,9 @@ from datetime import datetime
 
 class AssistanceMethods:
 
-    # ==================================================================#
-    # this method converts a given list of events to one long string    #
-    # ==================================================================#
+    #********************************************************************
+    # this method converts a given list of events to one long string    
+    #********************************************************************
     @staticmethod
     def fromListToString(eList):
         if (eList.__len__() == 0 ):
@@ -16,9 +16,9 @@ class AssistanceMethods:
                 tmpStr += eStr
             return tmpStr
 
-    # ==================================================================#
-    # this method validates date format                                 #
-    # ==================================================================#
+    #********************************************************************
+    # this method validates date format                                 
+    #********************************************************************
     @staticmethod
     def checkDateInput(Date):
         if (Date is "" ):
@@ -33,16 +33,16 @@ class AssistanceMethods:
                     return "Incorrect Data Format OR Invalid Date !"
         return True
 
-    # ======================================================================#
-    # this method sorts a given events list by their date (earlier to later #
-    # ======================================================================#
+    #************************************************************************
+    # this method sorts a given events list by their date (earlier to later)
+    #************************************************************************
     @staticmethod
     def sortListByDate(eveList):
-        return sorted(eveList)
+        return sorted(eveList, key = lambda  x: datetime.strptime(x["Date"], '%d-%m-%Y'))
 
-    # ===============================================================#
-    # this method checks if 2 given dates are in chronological order #
-    # ===============================================================#
+    #*****************************************************************
+    # this method checks if 2 given dates are in chronological order 
+    #*****************************************************************
     @staticmethod
     def checkDateRange(From, To):
          return ( datetime.strptime(From, '%d-%m-%Y') < datetime.strptime(To, '%d-%m-%Y') )
