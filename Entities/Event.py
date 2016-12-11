@@ -1,4 +1,7 @@
 
+#*********************************************
+# Event entity class
+#*********************************************
 class Event:
     def __init__(self, date, title, desc):
         self.date = date
